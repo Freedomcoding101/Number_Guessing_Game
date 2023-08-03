@@ -13,7 +13,6 @@ x = 2
 def start_game():
     import random
     guesses = []
-          
     number = int(random.randint(1, 10))
     print ("-----Welcome to The Number Guessing Game-----\n")
     print ("-----Your Mission Is To Guess The Number-----\n")
@@ -25,19 +24,15 @@ def start_game():
         if user_guess <=10 and user_guess >0:
                 guesses.append(user_guess)
         while user_guess >10 or user_guess <0:
-            raise Error("Your number is outside of the range, please enter a number between 1 and 10\n\n")
+            raise ValueError("Your number is outside of the range, please enter a number between 1 and 10\n\n")
             user_guess = int(input ("-----Please enter a number between 1-10 -----\n"))
             if user_guess <=10 and user_guess >0:
                 guesses.append(user_guess)
                 break
     except ValueError:
-        print("That is not a valid number\n")
+        print("Your number is outside of the range, please enter a number between 1 and 10\n\n")
         user_guess = int(input ("-----Please enter a number between 1-10 -----\n"))
-    except Error as err:
-        print(err)
-        user_guess = int(input ("-----Please enter a number between 1-10 -----\n"))
-        if user_guess <=10 and user_guess >0:
-                guesses.append(user_guess)
+    
                 
         
     while user_guess != number:
@@ -69,45 +64,37 @@ def start_game():
                 
                 
     if user_guess == number:
-        highscore_list= []
-        high_score = len(guesses)
-        highscore_list.append(high_score)
         print("\nYou got it!\n")
-        print(guesses)
-        print(highscore_list)
         if len(guesses) <2:
             print("You guessed it in {} try!\n".format(len(guesses)))
-            print(f"The high score is {min(highscore_list)}")
         else:
             print("You guessed it in {} tries!\n".format(len(guesses)))
-            print(f"The high score is {min(highscore_list)}")
         print("The game is now over!! Would you like to play again?\n")   
-    
-       
+           
     
     try:
         new_game = input("Type YES or NO  \n").lower()
         if new_game == "yes":
-            score = start_game()
+            start_game()
         elif new_game == "no":
             print("\nOkay thanks for playing!")
         else:
-            print("That is not a valid answer\n")
+            raise NameError("That is not a valid answer\n")
             new_game = input("Type YES or NO  \n").lower()
             if new_game == "yes":
                 start_game()
             elif new_game == "no":
                 print("\nOkay thanks for playing!")
     except NameError:
-        print("That is not a valid answer\n")
+        print("That is not a valid answer!\n")
         new_game = input("Type YES or NO \n").lower()
         if new_game == "yes":
-            print (min(highscore_list))
             start_game()
         elif new_game == "no":
             print("\nOkay thanks for playing!")
-    
+            
   
+   
     """Psuedo-code Hints
     
     When the program starts, we want to:
@@ -124,7 +111,3 @@ def start_game():
     
     ( You can add more features/enhancements if you'd like to. )
     """
-    # write your code inside this function
-
-
-# Kick off the program by calling the start_game function.
