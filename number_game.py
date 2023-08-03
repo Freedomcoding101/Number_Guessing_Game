@@ -8,7 +8,6 @@ For this first project we will be using Workspaces.
 NOTE: If you strongly prefer to work locally on your own computer, you can totally do that by clicking: File -> Download Workspace in the file menu after you fork the snapshot of this workspace.
 
 """
-x = 2
 
 def start_game():
     import random
