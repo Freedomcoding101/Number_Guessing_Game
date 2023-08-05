@@ -12,7 +12,10 @@ def start_game():
     print ("-----Your Mission Is To Guess The Number-----\n")
     user_name = input("-----Please enter your name to begin-----   \n")
     print ("\nOkay {}, today we are going to guess a number between 1-10\n In the end I will tell you how many tries you took!!\n\n".format (user_name)) 
-
+    if high_score == 0:
+        print("--There has been no high score set yet! Be the first to set a new High Score!--\n")
+    else:
+        print(f"------The current high score is {high_score}------\n")
     
     while x == 2:
         try:
@@ -68,4 +71,3 @@ def start_game():
 start_game()        
             
             
-        
